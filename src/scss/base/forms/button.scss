@@ -2,15 +2,29 @@
 .button{
     display: inline-flex;
     background-color: $mainColor;
-    border-radius: 3px;
-    font-weight: 600;
+    align-items: center;
+    gap: rem(18);
+    //border-radius: 3px;
+    font-weight: 800;
     font-size: rem(20);
-    color: #fff !important;
-    padding: rem(8) rem(52);
-    line-height: calc(32 / 20);
+    color: #fff ;
+    padding: rem(8) rem(24);
+    line-height: calc(36 / 20);
+    &_white{
+        background-color: #fff;
+        color: $mainColor;
+        border: 1px solid $mainColor;
+    }
     @media (any-hover: hover) {
         &:hover{
-
+            background-color: #fff;
+            color: $mainColor;
+            border: 1px solid $mainColor;
+            &.button_white{
+                background-color: $mainColor;
+                color: #fff;
+            }
+            
         }
     }
 }
