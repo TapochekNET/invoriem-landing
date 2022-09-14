@@ -1,14 +1,13 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 @import "mixins";
 
-$fontfamily: "Montserrat";
+$fontfamily: "Gilroy";
 $fontsize: rem(18);
 
 $responseType: 1;
-
 $minWidth: 320;
 $maxWidth: 1920;
-$maxWidthContainer: 1590;
+$maxWidthContainer: 1720;
 $containerPadding: 30;
 $containerWidth: $maxWidthContainer + $containerPadding;
 
@@ -17,21 +16,9 @@ $md2: em(991.98);
 $md3: em(767.98);
 $md4: em(479.98);
 
-$mainColor: #FF8A16;
-$mainLightOrangeColor: #FEF2E3;
-$mainLightColor: #F9F9F9;
-
-$hoverColor: #ca7219;
-
-$addLightGreenColor: #F1FED5;
-$addLightBlueColor: #E2FFFD;
-$addLightBlueColor: #E2EDFE;
-$addLightVioletColor: #E2EDFE;
-$addLightPurpleColor: #E3E2FF;
-$addLightPinkColor: #FEE2E2;
-$addPurpleColor: #DC2B7C;
-$addRedColor: #E41F18;
-$addGreenColor: #60B258;
+$mainColor: #114455;
+$darkGrayColor: #1F1F1F;
+$blueColor: #4A2AD3;
 
 @if ($responseType==1){
     [class*="__container"]{
