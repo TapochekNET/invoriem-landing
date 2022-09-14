@@ -1,0 +1,16 @@
+
+.button{
+    display: inline-flex;
+    background-color: $mainColor;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: rem(20);
+    color: #fff !important;
+    padding: rem(8) rem(52);
+    line-height: calc(32 / 20);
+    @media (any-hover: hover) {
+        &:hover{
+
+        }
+    }
+}

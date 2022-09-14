@@ -1,0 +1,134 @@
+
+@import "mixins";
+
+$fontfamily: "Montserrat";
+$fontsize: rem(18);
+
+$responseType: 1;
+
+$minWidth: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1590;
+$containerPadding: 30;
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+$md1: em($containerWidth);
+$md2: em(991.98);
+$md3: em(767.98);
+$md4: em(479.98);
+
+$mainColor: #FF8A16;
+$mainLightOrangeColor: #FEF2E3;
+$mainLightColor: #F9F9F9;
+
+$hoverColor: #ca7219;
+
+$addLightGreenColor: #F1FED5;
+$addLightBlueColor: #E2FFFD;
+$addLightBlueColor: #E2EDFE;
+$addLightVioletColor: #E2EDFE;
+$addLightPurpleColor: #E3E2FF;
+$addLightPinkColor: #FEE2E2;
+$addPurpleColor: #DC2B7C;
+$addRedColor: #E41F18;
+$addGreenColor: #60B258;
+
+@if ($responseType==1){
+    [class*="__container"]{
+        @if ($maxWidthContainer>0){
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+            margin: 0 auto;
+        }
+        @if ($containerPadding>0){
+            padding: 0 rem(calc($containerPadding / 2));
+        }
+    }
+}
+@else{
+    [class*="__container"]{
+        @if ($maxWidthContainer>0){
+            max-width: rem($maxWidthContainer);
+            margin: 0 auto;
+        }
+        @else{
+            @if ($containerPadding>0){
+                padding: 0 rem(calc($containerPadding / 2));
+            }
+        }
+        @media (max-width: $md1) {
+            max-width: rem(970);
+        }
+        @media (max-width: $md2) {
+            max-width: rem(750);
+        }
+        @media (max-width: $md3) {
+            max-width: none;
+            @if ($containerPadding>0 and $maxWidthContainer>0){
+                padding: 0 rem(calc($containerPadding / 2));
+            }
+        }
+    }
+}
+
+
+@import "icons";
+
+@import "fonts";
+@import "null";
+@import "ibg";
+
+//@import "base/swiper";
+@import"burger-menu";
+@import "base/forms/forms";
+
+@import "header";
+@import "footer";
+@import "main";
+
+
+
+
+body{
+    font-weight: 500;
+    //background-color: #ffe1bc;
+    color: $mainColor;
+    &._lock{
+        overflow: hidden;
+        touch-action: none;
+    }
+}
+
+.wrapper{
+    overflow: hidden;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    > main {
+        flex: 1 1 auto;
+    }
+    > * {
+        min-width: 0;
+    }
+}
+
+
+
+// ._container{
+//     max-width: $maxWidthContainer+px;
+//     padding: 0 15px;
+//     margin: 0 auto;
+// }
+
+.btn{
+}
+
+.page {
+    flex: 1 1 auto;
+}
+
+
+
+
+
+
