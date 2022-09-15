@@ -24,8 +24,8 @@ $blueColor: #4A2AD3;
     [class*="__container"]{
         @if ($maxWidthContainer>0){
             max-width: rem($maxWidthContainer);
-            box-sizing: content-box;
-            margin: 0 auto;
+            //box-sizing: content-box;
+            //margin: 0 auto;
         }
         @if ($containerPadding>0){
             padding: 0 rem(calc($containerPadding / 2));
@@ -58,7 +58,20 @@ $blueColor: #4A2AD3;
     }
 }
 
+[class*="__contaimer-right"]{
+    //box-sizing: content-box;
+    //padding: 0 0 0 15px;
+    padding-left: calc((100% - rem($maxWidthContainer)) / 2 + ( rem($containerPadding / 2) ) );
+    @media (max-width: $md1) {
+        padding-left: rem($containerPadding / 2);
+    }
+}
 
+.rect{
+    height: 100px;
+    width: 100%;
+    background-color: red;
+}
 @import "icons";
 
 @import "fonts";
@@ -77,10 +90,11 @@ $blueColor: #4A2AD3;
 
 
 body{
+    background-color: #000;
     font-weight: 500;
     //background-color: #ffe1bc;
     color: $mainColor;
-    &._lock{
+    &.lock{
         overflow: hidden;
         touch-action: none;
     }
@@ -110,9 +124,7 @@ body{
 .btn{
 }
 
-.page {
-    flex: 1 1 auto;
-}
+
 
 
 

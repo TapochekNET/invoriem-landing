@@ -1,4 +1,9 @@
 .header {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 10;
     // .header__container
     &__container {
         display: flex;
@@ -8,6 +13,7 @@
         @media (max-width: $md3) {
             min-height: 88px;
         }
+        
     }
     // .header__logo
     &__logo {
@@ -28,6 +34,7 @@
     
     // .menu__icon
     &__icon {
+        
     }
     // .menu__body
     &__body {
@@ -40,10 +47,11 @@
                 width: 100%;
                 left: -100%;
                 height: rem(88);
+                transition: left 0.3s ease 0s;
                 background-color: rgb(255, 255, 255);
                 z-index: 1;
             }
-            position: absolute;
+            position: fixed;
             top: 0;
             left: -100%;
             width: 100%;

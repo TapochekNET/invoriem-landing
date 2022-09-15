@@ -4,9 +4,17 @@
 
 [class*=__container] {
   max-width: 107.5rem;
-  box-sizing: content-box;
-  margin: 0 auto;
   padding: 0 0.9375rem;
+}
+
+[class*=__contaimer-right] {
+  padding-left: calc((100% - 107.5rem) / 2 + 0.9375rem);
+}
+
+.rect {
+  height: 100px;
+  width: 100%;
+  background-color: red;
 }
 
 @font-face {
@@ -33,6 +41,10 @@
 [class^=_icon-]::before,
 [class*=_icon-]::before {
   display: block;
+}
+
+._icon-logo:before {
+  content: "\e901";
 }
 
 ._icon-arrow-long:before {
@@ -173,24 +185,23 @@ h6 {
 
 /*--------------------*/
 
-._ibg {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+[class*=-ibg] {
+  position: relative;
 }
 
-._ibg img {
-  display: none;
-}
-
-.ibg img {
-  width: 0;
-  height: 0;
+[class*=-ibg] img {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
-  visibility: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .icon-menu {
@@ -213,6 +224,14 @@ h6 {
   background-color: #fff;
   color: #114455;
   border: 1px solid #114455;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .header__container {
@@ -288,12 +307,61 @@ h6 {
   margin: 0 0 1rem 0;
 }
 
+.page {
+  flex: 1 1 auto;
+}
+
+.no-webp .fullscreen-section{
+  background-image: url("../img/fullscreen.jpg"); }
+
+.fullscreen-section {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.fullscreen-section__container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.fullscreen-section__body {
+  margin-top: 200px;
+  z-index: 2;
+  width: 100%;
+}
+
+.fullscreen-section__title {
+  margin-bottom: 48px;
+  max-width: 45.875rem;
+  color: #114455;
+  font-size: 80px;
+  font-weight: 800;
+  text-align: left;
+}
+
+.fullscreen-section__logo {
+  display: none;
+  color: #1F1F1F;
+}
+
+.fullscreen-section__text {
+  font-size: 34px;
+  line-height: 1.1764705882;
+  color: #1F1F1F;
+  font-weight: 400;
+  margin-bottom: 3.7037037037%;
+}
+
 body {
+  background-color: #000;
   font-weight: 500;
   color: #114455;
 }
 
-body._lock {
+body.lock {
   overflow: hidden;
   touch-action: none;
 }
@@ -313,10 +381,6 @@ body._lock {
   min-width: 0;
 }
 
-.page {
-  flex: 1 1 auto;
-}
-
 @media (min-width: 47.99875em) {
   .menu__mobile-panel {
     display: none;
@@ -331,6 +395,36 @@ body._lock {
   .menu__list {
     gap: calc(45px + 73 * ((100vw - 320px) / 1430));
   }
+
+  .fullscreen-section__body {
+    margin-top: calc(150px + 50 * ((100vw - 768px) / 982));
+  }
+
+  .fullscreen-section__title {
+    margin-bottom: calc(20px + 28 * ((100vw - 768px) / 982));
+  }
+
+  .fullscreen-section__title {
+    font-size: calc(40px + 40 * ((100vw - 768px) / 982));
+  }
+
+  .fullscreen-section__text {
+    font-size: calc(14px + 20 * ((100vw - 320px) / 1430));
+  }
+}
+
+@media (max-width: 768px) {
+  .fullscreen-section__body {
+    margin-top: 150px;
+  }
+
+  .fullscreen-section__title {
+    margin-bottom: 20px;
+  }
+
+  .fullscreen-section__title {
+    font-size: 40px;
+  }
 }
 
 @media (max-width: 320px) {
@@ -340,6 +434,16 @@ body._lock {
 
   .menu__list {
     gap: 45px;
+  }
+
+  .fullscreen-section__text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 109.375em) {
+  [class*=__contaimer-right] {
+    padding-left: 0.9375rem;
   }
 }
 
@@ -382,7 +486,7 @@ body._lock {
   }
 
   .menu__body {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -100%;
     width: 100%;
@@ -400,6 +504,7 @@ body._lock {
     width: 100%;
     left: -100%;
     height: 5.5rem;
+    transition: left 0.3s ease 0s;
     background-color: white;
     z-index: 1;
   }
@@ -413,6 +518,27 @@ body._lock {
   }
 
   .menu__list {
+    display: none;
+  }
+
+  .fullscreen-section__title {
+    max-width: 100%;
+  }
+
+  .fullscreen-section__title span:not(.fullscreen-section__logo) {
+    display: none;
+  }
+
+  .fullscreen-section__logo {
+    display: inline;
+    text-align: center;
+  }
+
+  .fullscreen-section__text {
+    text-align: center;
+  }
+
+  .fullscreen-section__button {
     display: none;
   }
 }
@@ -433,3 +559,5 @@ body._lock {
     border-bottom: 1px solid #114455;
   }
 }
+
+.webp .fullscreen-section{ background-image: url(../img/fullscreen.webp); }
