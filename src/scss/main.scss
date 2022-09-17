@@ -94,7 +94,14 @@
     }
     // .case-studies__header
     &__header {
-        max-width: 50%;
+        max-width: 60%;
+        @media (max-width: $md3) {
+            max-width: 80%;
+        }
+        @media (max-width: $md4) {
+            max-width: 100%;
+            //text-align: center;
+        }
         @include adaptiveProp('margin-bottom', 100, 30);
     }
     // .case-studies__title
@@ -122,7 +129,7 @@
     // .case-studies__slide
     &__slide {
         height: 100%;
-        max-width: calc(780px / 1920px * 100%);
+        //max-width: calc(780px / 1920px * 100%);
     }
 }
 .case-slide {
@@ -141,8 +148,14 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        @include adaptiveProp('font-size', 140, 30);
+        @include adaptiveProp('font-size', 140, 60, 1920, 768);
         @include adaptiveProp('padding-bottom', 104, 30);
+        @media (max-width: $md3) {
+            @include adaptiveProp('font-size', 90, 60, 768, 480);
+        }
+        @media (max-width: $md4) {
+            @include adaptiveProp('font-size', 60, 50, 480);
+        }
         line-height: calc(164 / 140);
         color: transparent;
         font-weight: 800;

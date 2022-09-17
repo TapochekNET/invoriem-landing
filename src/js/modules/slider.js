@@ -28,9 +28,20 @@ function initSliders() {
             loop: true,
             //autoHeight: true,
             speed: 800,
-            // breakpoints: {
-
-            // }
+            breakpoints: {
+                768: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 48,
+                },
+                480: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 30,
+                },
+                0: {
+                    slidesPerView: 1.3,
+                    spaceBetween: 20 
+                }
+            }
            
             // on: {
             //     init: function(swiper){
