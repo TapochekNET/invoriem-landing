@@ -16,26 +16,18 @@ function bildSliders() {
 
 function initSliders() {
     bildSliders();
-    if(document.querySelector('.swiper')){
-        new Swiper('.swiper',{
+    if(document.querySelector('.case-studies__slider')){
+        new Swiper('.case-studies__slider',{
 
-            modules: [Navigation, Pagination],
+            //modules: [Navigation, Pagination],
 
             observer: true,
             observeParents: true,
-            slidersPerView: 1,
-            spaceBetween: 0,
-             //loop: true,
-            autoHeight: true,
+            slidesPerView: 2.5,
+            spaceBetween: 48,
+            loop: true,
+            //autoHeight: true,
             speed: 800,
-            navigation: {
-                nextEl: '.about__more .more__item_next',
-                prevEl: '.about__more .more__item_prev',
-            },
-            pagination: {
-                el: '',
-                clickable: true,
-            },
             // breakpoints: {
 
             // }

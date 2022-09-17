@@ -11,74 +11,23 @@ $maxWidthContainer: 1720;
 $containerPadding: 30;
 $containerWidth: $maxWidthContainer + $containerPadding;
 
-$md1: em($containerWidth);
-$md2: em(991.98);
-$md3: em(767.98);
-$md4: em(479.98);
+$md1: $containerWidth+px;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
 
 $mainColor: #114455;
 $darkGrayColor: #1F1F1F;
 $blueColor: #4A2AD3;
 
-@if ($responseType==1){
-    [class*="__container"]{
-        @if ($maxWidthContainer>0){
-            max-width: rem($maxWidthContainer);
-            //box-sizing: content-box;
-            //margin: 0 auto;
-        }
-        @if ($containerPadding>0){
-            padding: 0 rem(calc($containerPadding / 2));
-        }
-    }
-}
-@else{
-    [class*="__container"]{
-        @if ($maxWidthContainer>0){
-            max-width: rem($maxWidthContainer);
-            margin: 0 auto;
-        }
-        @else{
-            @if ($containerPadding>0){
-                padding: 0 rem(calc($containerPadding / 2));
-            }
-        }
-        @media (max-width: $md1) {
-            max-width: rem(970);
-        }
-        @media (max-width: $md2) {
-            max-width: rem(750);
-        }
-        @media (max-width: $md3) {
-            max-width: none;
-            @if ($containerPadding>0 and $maxWidthContainer>0){
-                padding: 0 rem(calc($containerPadding / 2));
-            }
-        }
-    }
-}
-
-[class*="__contaimer-right"]{
-    //box-sizing: content-box;
-    //padding: 0 0 0 15px;
-    padding-left: calc((100% - rem($maxWidthContainer)) / 2 + ( rem($containerPadding / 2) ) );
-    @media (max-width: $md1) {
-        padding-left: rem($containerPadding / 2);
-    }
-}
-
-.rect{
-    height: 100px;
-    width: 100%;
-    background-color: red;
-}
+@import "containers";
 @import "icons";
 
 @import "fonts";
 @import "null";
 @import "ibg";
 
-//@import "base/swiper";
+@import "base/swiper";
 @import"burger-menu";
 @import "base/forms/forms";
 
@@ -90,7 +39,7 @@ $blueColor: #4A2AD3;
 
 
 body{
-    background-color: #000;
+    background-color: #fff;
     font-weight: 500;
     //background-color: #ffe1bc;
     color: $mainColor;
@@ -113,16 +62,6 @@ body{
     }
 }
 
-
-
-// ._container{
-//     max-width: $maxWidthContainer+px;
-//     padding: 0 15px;
-//     margin: 0 auto;
-// }
-
-.btn{
-}
 
 
 

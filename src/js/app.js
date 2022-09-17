@@ -5,5 +5,5 @@ flsFunctions.isWebp()
 flsFunctions.burgerMenu()
 //flsForms.formRating()
 //import "./modules/dynamicAdapt.js"
-//import "./modules/slider.js"
+import "./modules/slider.js"
 import "./modules/script.js"
